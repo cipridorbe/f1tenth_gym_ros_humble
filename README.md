@@ -26,16 +26,18 @@ This installation guide will be split into instruction for installing the ROS 2 
 - Clone the repo into the workspace:
   ```bash
   cd $HOME/sim_ws/src
-  git clone https://github.com/f1tenth/f1tenth_gym_ros
+  git clone https://github.com/cipridorbe/f1tenth_gym_ros_humble
   ```
 - Update correct parameter for path to map file:
-  Go to `sim.yaml` [https://github.com/f1tenth/f1tenth_gym_ros/blob/main/config/sim.yaml](https://github.com/f1tenth/f1tenth_gym_ros/blob/main/config/sim.yaml) in your cloned repo, change the `map_path` parameter to point to the correct location. It should be `'<your_home_dir>/sim_ws/src/f1tenth_gym_ros/maps/levine'`
+  Go to `sim.yaml` [https://github.com/cipridorbe/f1tenth_gym_ros_humble/blob/main/config/sim.yaml](https://github.com/cipridorbe/f1tenth_gym_ros_humble/blob/main/config/sim.yaml) and to `gym_bridge` [https://github.com/cipridorbe/f1tenth_gym_ros_humble/blob/main/f1tenth_gym_ros/gym_bridge.py](https://github.com/cipridorbe/f1tenth_gym_ros_humble/blob/main/f1tenth_gym_ros/gym_bridge.py) in your cloned repo, change the `map_path` parameter to point to the correct location. It should be `'<your_home_dir>/sim_ws/src/f1tenth_gym_ros/maps/levine'`
 - Install dependencies with rosdep:
   ```bash
   source /opt/ros/foxy/setup.bash
   cd ..
   rosdep install -i --from-path src --rosdistro foxy -y
   ```
+- Update [Coverage](https://coverage.readthedocs.io/en/7.11.3/) to 7.11.3:
+  ```pip install coverage==7.11.3```
 - Build the workspace: ```colcon build```
 
 ## With an NVIDIA gpu:
